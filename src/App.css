@@ -1,42 +1,71 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.glassMorph {
+    /* From https://css.glass */
+    background: rgba(9, 9, 9, 0.4);
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(9, 9, 9, 0.3);
+    border-bottom: 1px solid rgb(60, 60, 60);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navTrigger label {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    /* height: 40px; */
+    cursor: pointer;
+    /* scale: 0.35; */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navTrigger label span {
+    background: #fff;
+    border-radius: 10px;
+    height: 2px;
+    margin: 3px 0;
+    transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+.navTrigger span:nth-of-type(1) {
+    width: 50%;
+
 }
 
-.card {
-  padding: 2em;
+.navTrigger span:nth-of-type(2) {
+    width: 100%;
 }
 
-.read-the-docs {
-  color: #888;
+
+.navTrigger span:nth-of-type(3) {
+    width: 75%;
+
+}
+
+
+.navTrigger input[type="checkbox"] {
+    display: none;
+}
+
+
+.navTrigger input[type="checkbox"]:checked~span:nth-of-type(1) {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(3px, 0px)
+}
+
+
+.navTrigger input[type="checkbox"]:checked~span:nth-of-type(2) {
+
+    transform-origin: top;
+    transform: rotatez(-45deg)
+}
+
+
+.navTrigger input[type="checkbox"]:checked~span:nth-of-type(3) {
+
+    transform-origin: bottom;
+    width: 50%;
+    transform: translate(13px, -3px) rotatez(45deg);
+
 }
